@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
-  private readonly apiUrl = 'http://127.0.0.1:8000/api/tasks/';
+  private readonly apiUrl = environment.apiTasks;
 
   async getTasks() {
     const token = localStorage.getItem('token');

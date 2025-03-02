@@ -1,27 +1,80 @@
-# BackofficeTasks
+# Backoffice de Gestión de Tareas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.2.
+Este proyecto es una aplicación web desarrollada en **Angular** con **Angular Material**, que permite la gestión de usuarios y tareas a través de una interfaz moderna y responsiva.
 
-## Development server
+## 📋 Requisitos Previos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Antes de instalar y ejecutar la aplicación, asegúrate de tener instalado lo siguiente en tu sistema:
 
-## Code scaffolding
+- **Node.js** (versión 18 o superior) 👉 [Descargar Node.js](https://nodejs.org/)
+- **Angular CLI** (versión más reciente) 👉 Instalar con:
+  ```sh
+  npm install -g @angular/cli
+  ```
+- **Git** (para clonar el repositorio) 👉 [Descargar Git](https://git-scm.com/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🚀 Instalación
 
-## Build
+1️⃣ **Clonar el repositorio:**
+```sh
+  git clone https://github.com/neoxyx/backoffice-tasks.git
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+2️⃣ **Ingresar al directorio del proyecto:**
+```sh
+  cd backoffice-tasks
+```
 
-## Running unit tests
+3️⃣ **Instalar las dependencias:**
+```sh
+  npm install
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## ▶️ Ejecución en Modo Desarrollo
 
-## Running end-to-end tests
+Para correr la aplicación en un entorno local, usa el siguiente comando:
+```sh
+  npm start
+```
+Esto iniciará un servidor en `http://localhost:4200/`.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 🛠️ Configuración de Variables de Entorno
 
-## Further help
+La aplicación usa un archivo de configuración para definir las URLs de la API y otros parámetros. Asegúrate de modificar `src/environments/environment.ts` según tu entorno:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```ts
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:3000/api'
+};
+```
+
+## 📌 Estructura del Proyecto
+
+```
+├── src
+│   ├── app
+│   │   ├── components  # Componentes de la aplicación
+│   │   ├── pages       # Páginas principales
+│   │   ├── services    # Servicios para llamadas HTTP
+│   │   ├── app.routes.ts  # Configuración de rutas
+│   ├── environments   # Configuraciones de entorno
+│   ├── assets         # Imágenes y archivos estáticos
+│   ├── styles.scss    # Estilos globales
+```
+
+## 🔌 API Backend
+
+Este proyecto consume una API que debe estar corriendo en `http://localhost:8000/`. Si la API está desplegada en otro dominio, actualiza `apiUrl` en `environment.ts`.
+
+## 📦 Construcción para Producción
+
+Para generar una versión optimizada para producción:
+```sh
+  npm run build
+```
+El código se generará en la carpeta `dist/` y estará listo para ser desplegado.
+
+## 📜 Licencia
+
+Este proyecto está bajo la licencia **MIT**.

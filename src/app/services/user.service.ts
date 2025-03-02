@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private readonly apiUrl = 'http://127.0.0.1:8000/api/users';
+  private readonly apiUrl = environment.apiUsers;
 
   async getUsers() {
     const token = localStorage.getItem('token'); // ⚡ Recupera el token si usas JWT

@@ -1,0 +1,27 @@
+<mat-toolbar>
+  <button mat-icon-button (click)="goTasks()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <span>Crear Tarea</span>
+</mat-toolbar>
+
+<div class="container">
+  <form [formGroup]="taskForm" (ngSubmit)="submitForm()">
+    <ng-container>
+      <mat-form-field fullWidth>
+        <mat-label>Título</mat-label>
+        <input matInput formControlName="title" required />
+      </mat-form-field>
+    </ng-container>
+
+    <ng-container>
+      <mat-form-field fullWidth>
+        <mat-label>Descripción</mat-label>
+        <input matInput formControlName="description" required />
+      </mat-form-field>
+    </ng-container>
+    <button mat-raised-button color="primary" type="submit" [disabled]="taskForm.invalid">
+      Crear
+    </button>
+  </form>
+</div>

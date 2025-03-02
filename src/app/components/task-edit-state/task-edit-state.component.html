@@ -1,0 +1,23 @@
+<mat-toolbar>
+  <button mat-icon-button (click)="goTasks()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <span>Editar Estado</span>
+</mat-toolbar>
+
+<div class="container">
+  <form [formGroup]="taskForm" (ngSubmit)="updateTask()">
+    <mat-form-field appearance="outline">
+      <mat-label>Estado</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="pending">Pendiente</mat-option>
+        <mat-option value="in_progress">En Progreso</mat-option>
+        <mat-option value="completed">Completada</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="taskForm.invalid">
+      Actualizar Estado
+    </button>
+  </form>
+</div>

@@ -45,8 +45,9 @@ La aplicación usa un archivo de configuración para definir las URLs de la API 
 ```ts
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8000/api'
-};
+  apiUsers: 'http://localhost:8000/api/users',
+  apiTasks: 'http://localhost:8000/api/tasks/'
+}
 ```
 
 ## 📌 Estructura del Proyecto

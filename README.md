@@ -45,7 +45,7 @@ La aplicación usa un archivo de configuración para definir las URLs de la API 
 ```ts
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000/api'
+  apiUrl: 'http://localhost:8000/api'
 };
 ```
 

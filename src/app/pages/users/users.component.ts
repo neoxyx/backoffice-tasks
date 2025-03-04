@@ -7,6 +7,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-users',
@@ -19,15 +22,29 @@ export class UsersComponent implements OnInit {
   users: any[] = [];
   displayedColumns: string[] = ['name', 'actions'];
 
-  constructor(private readonly userService: UserService) { }
+  constructor(private readonly userService: UserService, private readonly dialog: MatDialog) { }
 
   async ngOnInit() {
     this.users = await this.userService.getUsers();
   }
 
+  editUser(id: any) {
+    console.log('Editar usuario:', id);
+    this.router.navigate([`users/edit/${id}`]);
+  }
+
   async deleteUser(id: number) {
-    await this.userService.deleteUser(id);
-    this.users = this.users.filter(user => user.id !== id);
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '300px',
+      data: { message: '¿Estás seguro de que deseas eliminar este usuario?' },
+    });
+
+    const result = await lastValueFrom(dialogRef.afterClosed());
+
+    if (result) {
+      await this.userService.deleteUser(id);
+      this.users = this.users.filter(user => user.id !== id);
+    }
   }
 
   goBack() {

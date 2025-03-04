@@ -2,9 +2,10 @@
   <button mat-icon-button (click)="goUsers()">
     <mat-icon>arrow_back</mat-icon>
   </button>
-  <span>Crear Usuario</span>
+  <span>Editar Usuario</span>
 </mat-toolbar>
 <div class="container">
+  <h2>Editar Usuario</h2>
   <form [formGroup]="userForm" (ngSubmit)="submitForm()">
     <mat-form-field appearance="outline">
       <mat-label>Nombre</mat-label>
@@ -16,13 +17,8 @@
       <input matInput type="email" formControlName="email" required />
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Contraseña</mat-label>
-      <input matInput type="password" formControlName="password" required />
-    </mat-form-field>
-
     <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">
-      Crear Usuario
+      Guardar Cambios
     </button>
   </form>
 </div>

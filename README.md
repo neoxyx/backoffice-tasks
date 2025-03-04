@@ -66,7 +66,7 @@ export const environment = {
 
 ## 🔌 API Backend
 
-Este proyecto consume una API que debe estar corriendo en `http://localhost:8000/`. Si la API está desplegada en otro dominio, actualiza `apiUrl` en `environment.ts`.
+Este proyecto consume una API que debe estar corriendo en `http://localhost:8000/`. Si la API está desplegada en otro dominio, actualiza `apiUsers y apiTasks` en `environment.ts`.
 
 ## 📦 Construcción para Producción
 
